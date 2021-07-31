@@ -1,0 +1,13 @@
+name = "RINEX"
+uuid = "ecc666b9-7a72-4271-bf78-fa33b6be7a33"
+authors = ["Can Ozmaden <can.oezmaden@rwth-aachen.de> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
