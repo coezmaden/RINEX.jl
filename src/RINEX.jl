@@ -1,7 +1,6 @@
 module RINEX
 
-    using FileIO: typemax
-using Base: Float64
+    using Base: Float64
     using FileIO, Unitful
 
     export RINEXHeader, rinex_read

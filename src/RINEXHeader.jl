@@ -1,4 +1,4 @@
-struct RINEXHeader
+mutable struct RINEXHeader
     format_version::Float64
     file_type::String
     satellite_system::String

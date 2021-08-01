@@ -6,7 +6,7 @@ function rinex_read(filename::String)
 end
 
 function rinex_read(iostream::IOStream)
-    rinex_header = rinex_read_header(iostream)
+    rinex_header = rinex_read_header(iostream, RINEXHeader())
     rinex_data = rinex_read_data(iostream, rinex_header)
     return rinex_header, rinex_data
 end
@@ -25,8 +25,12 @@ end
 
 function rinex_read_data(iostream::IOStream, header)
     data = readlines(iostream)
-    # num_of_entries = length(data) ÷ 8
-    # sat_line = 0
+    num_of_entries = length(data) ÷ 8
+    for entry = 1:num_of_entries
+        for line = 1:length(data)
 
+        end
+    end
+    # sat_line = 0
     return data
 end
