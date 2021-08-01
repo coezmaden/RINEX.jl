@@ -3,6 +3,10 @@ uuid = "ecc666b9-7a72-4271-bf78-fa33b6be7a33"
 authors = ["Can Ozmaden <can.oezmaden@rwth-aachen.de> and contributors"]
 version = "0.1.0"
 
+[deps]
+FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
 [compat]
 julia = "1"
 
