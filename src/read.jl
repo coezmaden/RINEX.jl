@@ -30,7 +30,7 @@ function rinex_read_data!(data::DataFrame, iostream::IOStream)
     num_of_entries = length(rxndata_raw) ÷ 8
     for i = 1:num_of_entries
         chunk = rxndata_raw[1+(i-1)*8:8*i] #get 8 lines chunks
-        gpsnavmsg = GPSNavMessageFile(
+        @inbounds gpsnavmsg = GPSNavMessageFile(
             parse(Int, chunk[1][2:3]),
             DateTime(
                 parse(Int, chunk[1][5:8]), 
