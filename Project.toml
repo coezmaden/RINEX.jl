@@ -4,6 +4,8 @@ authors = ["Can Ozmaden <can.oezmaden@rwth-aachen.de> and contributors"]
 version = "0.1.0"
 
 [deps]
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
 FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
 Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 

@@ -1,10 +1,10 @@
 module RINEX
 
-    using Base: Float64
-    using FileIO, Unitful
+    using FileIO, Unitful, Dates, DataFrames
 
     export RINEXHeader, rinex_read
 
+    include("NavMessageFile.jl")
     include("RINEXHeader.jl")
     include("RINEXData.jl")
     include("io.jl")

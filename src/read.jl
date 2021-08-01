@@ -6,12 +6,16 @@ function rinex_read(filename::String)
 end
 
 function rinex_read(iostream::IOStream)
-    rinex_header = rinex_read_header(iostream, RINEXHeader())
-    rinex_data = rinex_read_data(iostream, rinex_header)
+    rinex_header = rinex_read_header!(RINEXHeader(), iostream)
+    rinex_data = rinex_read_data!(
+        DataFrame(NavMessageID=String[], NavigationMessage=RINEX.AbstractNavMessageFile[]), 
+        iostream, 
+        rinex_header
+    )
     return rinex_header, rinex_data
 end
 
-function rinex_read_header(iostream::IOStream)
+function rinex_read_header!(header::RINEXHeader, iostream::IOStream)
     header = readlines(IOBuffer(readuntil(iostream, EOH, keep = true)))
     
     # # RINEX VERSION / TYPE
@@ -23,14 +27,14 @@ function rinex_read_header(iostream::IOStream)
     # return num_header_lines, file_version, file_type, satellite_system
 end
 
-function rinex_read_data(iostream::IOStream, header)
-    data = readlines(iostream)
-    num_of_entries = length(data) ÷ 8
-    for entry = 1:num_of_entries
-        for line = 1:length(data)
+function rinex_read_data!(data::DataFrame, iostream::IOStream, header)
+    datastream = readlines(iostream)
+    # num_of_entries = length(data) ÷ 8
+    # for entry = 1:num_of_entries
+    #     for line = 1:length(data)
 
-        end
-    end
+    #     end
+    # end
     # sat_line = 0
-    return data
+    return datastream
 end

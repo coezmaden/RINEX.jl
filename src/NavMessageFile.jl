@@ -1,10 +1,11 @@
-mutable struct RINEXData
-    satellite_system::String
+abstract type AbstractNavMessageFile end
+
+struct GPSNavMessageFile <: AbstractNavMessageFile
     prn::Int
-    epoch::Int
-    sv_clock_bias::Int
-    sv_clock_drift::Int
-    sv_clock_drift_rate::Int
+    toc::DateTime
+    clock_bias::Float64
+    clock_drift::Float64
+    clock_drift_rate::Float64
     IODE::Float64
     C_rs::Float64
     Δn::Float64
@@ -15,6 +16,10 @@ mutable struct RINEXData
     sqrt_A::Float64
     t_oe::Float64
     C_ic::Float64
+    ω₀::Float64
+    C_is::Float64
+    i₀::Float64
+    C_rc::Float64
     ω::Float64
     Ω_dot::Float64
     IDOT::Float64
